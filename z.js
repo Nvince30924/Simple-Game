@@ -1,41 +1,43 @@
 $(document).ready(function() {
 
-        $("body").keydown(function(event) {
-            //moves left
-                    if (event.which === 37) {
-                        $("#trunks").css("left", $("#trunks").offset().left - 50);
+  $("body").keydown(function(event) {
+    //moves left
+    if (event.which === 37) {
+        
+      if ($("#trunks").offset().left > 0 ) { 
+        
+        $("#trunks").css("left", $("#trunks").offset().left - 50);
+        
+      }
+    
+         
 
-                    } else if (event.which === 39) {
-                        $("#trunks").css("left", $("#trunks").offset().left + 50);
+    } else if (event.which === 39) {
 
-                    }
+      if ($("#trunks").offset().left + 95 < $( window ).width() ) {  
+        $("#trunks").css("left", $("#trunks").offset().left + 50);
+      }
+      
+    }
 
 
-            });
+  });
 function random(min, max) {
   var range = Math.random() * max 
   return Math.floor (range)
 }
 setInterval(function() {
     
-    $("#senzu").css("top", $("#senzu").offset().top + 50);
+    $(".senzu").css("top", $(".senzu").offset().top + 50);
      
-}, 1000)
-
-
-
-
-
-
-
-
+}, 1000);
 
 
 
 
     
 });
-function checkcollison (playerPosition, objectPosition){
+function iscollison (playerPosition, objectPosition){
   console.log (objectPosition.top);
   var playerTop = playerPosition.top - 75;
   console.log(playerTop, "playerTop");
